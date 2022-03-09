@@ -50,9 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.ref, 'refs/heads/') || startsWith(github.ref, 'refs/tags/') }}
     steps:
-      - name: Print GITHUB_WORKSPACE
-        run: |
-          echo "$env:GITHUB_WORKSPACE"
       - uses: actions/download-artifact@v3
         with:
           name: npm-tarball
