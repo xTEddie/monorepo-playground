@@ -11,10 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Validate
-        run: |
-          pwd -L
-          ls
       - name: Checking out for ${{ github.ref }}
         uses: actions/checkout@v3
       - name: Use Node.js
@@ -37,24 +33,13 @@ jobs:
       # - name: Build NPM packages
       #   run: |
       #     npm run build:tsc
-      - name: Validate
-        working-directory: packages/foo
-        run: |
-          pwd -L
-          ls      
       - name: Npm packaging
         working-directory: packages/foo
         run: npm pack
       - name: Move package tarball to root
         working-directory: packages/foo
         run: |
-          pwd -L
-          ls
           mv *.tgz ../../
-      - name: Validate
-        run: |
-          pwd -L
-          ls          
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -69,10 +54,6 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: npm-tarball
-      - name: Validate
-        run: |
-          pwd -L
-          ls
       - name: Read package.json
         id: read-package-json
         run: |
