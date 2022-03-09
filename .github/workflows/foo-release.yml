@@ -55,7 +55,7 @@ jobs:
           name: npm-tarball
       - name: Move downloaded package tarball to working-directory
         run: |
-          mv **/*.tgz .
+          mv ../../*.tgz .
       - name: Read package.json
         id: read-package-json
         run: |
