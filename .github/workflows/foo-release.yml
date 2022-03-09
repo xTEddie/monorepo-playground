@@ -36,13 +36,14 @@ jobs:
       #     npm run build:tsc
       - name: Npm packaging
         run: npm pack
-      - name: PWD
-        run: pwd
+      - name: Move package tarball to root
+        run: |
+          mv *.tgz ../../
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with:
           name: npm-tarball
-          path: '**/*.tgz'
+          path: '*.tgz'
   
   publish:
     needs: build
