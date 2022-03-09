@@ -37,7 +37,9 @@ jobs:
         working-directory: packages/bar
         run: npm pack
       - name: Move package tarball to root
-        working-directory: packages/bar        
+        working-directory: packages/bar
+        run: |
+          mv *.tgz ../../
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with:
