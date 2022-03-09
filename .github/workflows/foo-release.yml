@@ -46,8 +46,11 @@ jobs:
         working-directory: packages/foo
         run: npm pack
       - name: Move package tarball to root
+        working-directory: packages/foo
         run: |
-          mv **/*.tgz .
+          pwd -L
+          ls
+          mv *.tgz ../../
       - name: Validate
         run: |
           pwd -L
