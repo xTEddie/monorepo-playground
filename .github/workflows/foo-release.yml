@@ -52,7 +52,11 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: "$GITHUB_WORKSPACE/npm-tarball"
+          name: npm-tarball
+      - name: pwd
+        run: pwd
+      - name: ls
+        run: ls
       - name: Read package.json
         id: read-package-json
         run: |
