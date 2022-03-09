@@ -8,7 +8,8 @@ on:
       - 'packages/foo/**'
 
 defaults:
-  working-directory: packages/foo
+  run:
+    working-directory: packages/foo
 
 jobs: 
   build:
