@@ -6,11 +6,13 @@ on:
       - dev
     paths:
       - 'packages/foo/**'
-    
+
+defaults:
+  working-directory: packages/foo
+
 jobs: 
   build:
     runs-on: ubuntu-latest
-    working-directory: packages/foo
     steps:
       - name: Checking out for ${{ github.ref }}
         uses: actions/checkout@v3
@@ -42,7 +44,6 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
-    working-directory: packages/foo
     if: ${{ startsWith(github.ref, 'refs/heads/') || startsWith(github.ref, 'refs/tags/') }}
     steps:
       - uses: actions/download-artifact@v3
