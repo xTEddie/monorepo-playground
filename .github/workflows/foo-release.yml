@@ -7,14 +7,14 @@ on:
     paths:
       - 'packages/foo/**'
 
-defaults:
-  run:
-    working-directory: packages/foo
-
 jobs: 
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Validate
+        run: |
+          pwd -L
+          ls
       - name: Checking out for ${{ github.ref }}
         uses: actions/checkout@v3
       - name: Use Node.js
@@ -34,11 +34,19 @@ jobs:
       # - name: Build NPM packages
       #   run: |
       #     npm run build:tsc
+      - name: Validate
+        run: |
+          pwd -L
+          ls      
       - name: Npm packaging
         run: npm pack
       - name: Move package tarball to root
         run: |
           mv *.tgz ../../
+      - name: Validate
+        run: |
+          pwd -L
+          ls          
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3
         with:
