@@ -52,7 +52,7 @@ jobs:
     steps:
       - name: Print GITHUB_WORKSPACE
         run: |
-          echo "$GITHUB_WORKSPACE"
+          echo "$env:GITHUB_WORKSPACE"
       - uses: actions/download-artifact@v3
         with:
           name: npm-tarball
