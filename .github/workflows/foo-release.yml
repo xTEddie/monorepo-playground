@@ -47,7 +47,7 @@ jobs:
         run: npm pack
       - name: Move package tarball to root
         run: |
-          mv *.tgz ../../
+          mv **/*.tgz .
       - name: Validate
         run: |
           pwd -L
