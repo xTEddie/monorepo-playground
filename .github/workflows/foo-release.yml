@@ -53,10 +53,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: npm-tarball
-      - name: pwd
-        run: pwd
-      - name: ls
-        run: ls
+      - name: Validate
+        run: |
+          pwd -L
+          ls
       - name: Read package.json
         id: read-package-json
         run: |
