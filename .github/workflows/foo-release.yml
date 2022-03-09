@@ -52,10 +52,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v3
         with:
-          name: npm-tarball
-      - name: Move downloaded package tarball to working-directory
-        run: |
-          mv ../../*.tgz .
+          name: ${GITHUB_WORKSPACE}/npm-tarball
       - name: Read package.json
         id: read-package-json
         run: |
