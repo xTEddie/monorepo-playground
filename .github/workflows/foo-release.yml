@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: 16.X
       - name: Update package version
+        working-directory: packages/foo
         run: npx version-from-git --no-git-tag-version
         if: ${{ startsWith(github.ref, 'refs/heads/') }}
       - name: Read package.json
